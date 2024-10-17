@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="schema">
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="categories">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="category" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="idCategory" type="xs:int"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="countries">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="country" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="idCountry" type="xs:int"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="payments">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="payment" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="idPayment" type="xs:int"/>
+                                        <xs:element name="method" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="user">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="idUser" type="xs:string"/>
+                            <xs:element name="firstName" type="xs:string"/>
+                            <xs:element name="lastName" type="xs:string"/>
+                            <xs:element name="email" type="xs:string"/>
+                            <xs:element name="address" type="xs:string"/>
+                            <xs:element name="phoneNumber" type="xs:string"/>
+                            <xs:element name="country">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="idCountry" type="xs:int"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="store">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="idStore" type="xs:int"/>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="address" type="xs:string"/>
+                            <xs:element name="reputation" type="xs:int"/>
+                            <xs:element name="country">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="idCountry" type="xs:int"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

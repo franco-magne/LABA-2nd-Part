@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema>
+    <categories>
+        <category>
+            <idCategory>1</idCategory>
+            <name>Electronics</name>
+        </category>
+        <category>
+            <idCategory>2</idCategory>
+            <name>Clothing</name>
+        </category>
+    </categories>
+
+    <countries>
+        <country>
+            <idCountry>1</idCountry>
+            <name>USA</name>
+        </country>
+        <country>
+            <idCountry>2</idCountry>
+            <name>Poland</name>
+        </country>
+        <country>
+            <idCountry>3</idCountry>
+            <name>Argentina</name>
+        </country>
+    </countries>
+
+    <payments>
+        <payment>
+            <idPayment>1</idPayment>
+            <method>Cash</method>
+        </payment>
+        <payment>
+            <idPayment>2</idPayment>
+            <method>Credit card</method>
+        </payment>
+    </payments>
+
+    <user>
+        <idUser>1</idUser>
+        <firstName>Franco</firstName>
+        <lastName>Magne</lastName>
+        <email>francooo@gmail.com</email>
+        <address>My House 456</address>
+        <phoneNumber>1122334455</phoneNumber>
+        <country>
+            <idCountry>3</idCountry>
+            <name>Argentina</name>
+        </country>
+    </user>
+
+    <store>
+        <idStore>1</idStore>
+        <name>Just Sports</name>
+        <address>Av. Sta. Fe 1955</address>
+        <reputation>89</reputation>
+        <country>
+            <idCountry>3</idCountry>
+            <name>Argentina</name>
+        </country>
+    </store>
+</schema>
