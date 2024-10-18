@@ -1,13 +1,33 @@
 package model;
 
+import jakarta.xml.bind.annotation.*;
+
+@XmlRootElement(name = "product")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Product {
+
+    @XmlElement(name = "idProduct")
     private int idProduct;
+
+    @XmlElement(name = "name")
     private String name;
+
+    @XmlElement(name = "description")
     private String description;
+
+    @XmlElement(name = "price")
     private double price;
+
+    @XmlElement(name = "stock")
     private int stock;
+
+    @XmlElementRef(name = "category", type = Category.class)
     private Category category;
+
+    @XmlElementRef(name = "category", type = Store.class)
     private Store store;
+
+    public Product() {}
 
     public Product(int idProduct, String name, String description, double price, int stock, Category category, Store store) {
         this.idProduct = idProduct;
@@ -17,6 +37,18 @@ public class Product {
         this.stock = stock;
         this.category = category;
         this.store = store;
+    }
+
+    @Override
+    public String toString() {
+        return "Store: { " +
+                "idProduct = " + idProduct +
+                ", name = " + name +
+                ", description = " + description +
+                ", price = " + price +
+                ", stock = " + stock +
+                ", category = " + category.getName() +
+                ", store = " + store.getName() + " }";
     }
 
     public int getIdProduct() {

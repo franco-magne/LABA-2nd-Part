@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order>
+    <idOrder>22</idOrder>
+    <user>
+        <idUser>6</idUser>
+        <firstName>Fran</firstName>
+        <lastName>Mg</lastName>
+        <email>@mail</email>
+        <address>Home</address>
+        <phoneNumber>8888</phoneNumber>
+        <country>
+            <idCategory>9</idCategory>
+            <name>UK</name>
+        </country>
+    </user>
+    <totalPrice>5000.0</totalPrice>
+    <orderDate>18/10/2024</orderDate>
+    <payment>
+        <idPayment>1</idPayment>
+        <method>Cash</method>
+    </payment>
+    <isPaid>true</isPaid>
+    <productQuantityList>
+        <product>
+            <idProduct>15</idProduct>
+            <name>Laptop HP</name>
+            <description>16 GB</description>
+            <price>1500.0</price>
+            <stock>15</stock>
+            <category>
+                <idCategory>4</idCategory>
+                <name>Tech</name>
+            </category>
+            <store>
+                <idStore>10</idStore>
+                <name>HP</name>
+                <address>Av. High Park</address>
+                <reputation>80</reputation>
+                <country>
+                    <idCategory>9</idCategory>
+                    <name>UK</name>
+                </country>
+            </store>
+        </product>
+        <quantity>3</quantity>
+    </productQuantityList>
+    <productQuantityList>
+        <product>
+            <idProduct>16</idProduct>
+            <name>Epson</name>
+            <description>With WiFi</description>
+            <price>500.0</price>
+            <stock>50</stock>
+            <category>
+                <idCategory>4</idCategory>
+                <name>Tech</name>
+            </category>
+            <store>
+                <idStore>10</idStore>
+                <name>HP</name>
+                <address>Av. High Park</address>
+                <reputation>80</reputation>
+                <country>
+                    <idCategory>9</idCategory>
+                    <name>UK</name>
+                </country>
+            </store>
+        </product>
+        <quantity>1</quantity>
+    </productQuantityList>
+</order>

@@ -1,25 +1,60 @@
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
+import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import utils.xml.XMLDateAdapter;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
+@XmlRootElement(name = "order")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Order {
-    private int idOrder;
-    private User user;
-    private double totalPrice;
-    private String orderDate;
-    private Payment payment;
-    private boolean isPaid;
-    private Map<Product, Integer> listProductQuantity;
 
-    public Order(int idOrder, User user, double totalPrice, String orderDate, Payment payment, boolean isPaid) {
+    @XmlElement(name = "idOrder")
+    private int idOrder;
+
+    @XmlElementRef(name = "country", type = User.class)
+    private User user;
+
+    @XmlElement(name = "totalPrice")
+    private double totalPrice;
+
+    @XmlJavaTypeAdapter(XMLDateAdapter.class)
+    private Date orderDate;
+
+    @XmlElementRef(name = "country", type = Payment.class)
+    private Payment payment;
+
+    @XmlElement(name = "isPaid")
+    private boolean isPaid;
+
+    @XmlElement(name = "productQuantityList")
+    private List<ProductQuantity> listProductQuantity;
+
+    public Order() {}
+
+    public Order(int idOrder, User user, double totalPrice, Date orderDate, Payment payment, boolean isPaid) {
         this.idOrder = idOrder;
         this.user = user;
         this.totalPrice = totalPrice;
         this.orderDate = orderDate;
         this.payment = payment;
         this.isPaid = isPaid;
-        listProductQuantity =  new HashMap<>();
+        listProductQuantity =  new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        return "Order: { " +
+                "idOrder = " + idOrder +
+                ", user = " + user.getFirstName() + " " + user.getLastName() +
+                ", total price = " + totalPrice +
+                ", date = " + sdf.format(orderDate) +
+                ", payment = " + payment.getMethod() +
+                ", is paid = " + isPaid +
+                ", list = " + listProductQuantity.toString() + " }";
     }
 
     public int getIdOrder() {
@@ -46,11 +81,11 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -70,11 +105,15 @@ public class Order {
         isPaid = paid;
     }
 
-    public Map<Product, Integer> getListProductQuantity() {
+    public List<ProductQuantity> getListProductQuantity() {
         return listProductQuantity;
     }
 
-    public void setListProductQuantity(Map<Product, Integer> listProductQuantity) {
+    public void setListProductQuantity(List<ProductQuantity> listProductQuantity) {
         this.listProductQuantity = listProductQuantity;
+    }
+
+    public void addProduct(Product product, int quantity) {
+        this.listProductQuantity.add(new ProductQuantity(product, quantity));
     }
 }
