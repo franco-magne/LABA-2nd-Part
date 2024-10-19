@@ -1,33 +1,44 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import utils.xml.XMLDateAdapter;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@JsonRootName("order")
 @XmlRootElement(name = "order")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Order {
 
+    @JsonProperty("idOrder")
     @XmlElement(name = "idOrder")
     private int idOrder;
 
+    @JsonProperty("user")
     @XmlElementRef(name = "country", type = User.class)
     private User user;
 
+    @JsonProperty("totalPrice")
     @XmlElement(name = "totalPrice")
     private double totalPrice;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", timezone = "UTC")
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
     private Date orderDate;
 
+    @JsonProperty("payment")
     @XmlElementRef(name = "country", type = Payment.class)
     private Payment payment;
 
+    @JsonProperty("isPaid")
     @XmlElement(name = "isPaid")
     private boolean isPaid;
 
+    @JsonProperty("productQuantityList")
     @XmlElement(name = "productQuantityList")
     private List<ProductQuantity> listProductQuantity;
 

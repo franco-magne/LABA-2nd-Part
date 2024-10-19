@@ -9,3 +9,6 @@
 5. XML parser in `src/main/java/utils/xml/StAXParser.java`
 6. JAXB annotations added in `src/main/java/model`
 7. JAXB parsers in `src/main/java/jaxb`
+8. JSON file for 5 classes in `src/main/resources/schema.json`
+9. JSON annotations added in `src/main/java/model`
+10. JSON parsers in `src/main/java/jackson`

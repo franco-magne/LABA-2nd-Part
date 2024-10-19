@@ -1,6 +1,8 @@
 package org.laba;
 
 import dao.impl.CategoryDAO;
+import jackson.CategoryJackson;
+import jackson.OrderJackson;
 import jaxb.OrderJAXB;
 import model.*;
 import org.apache.logging.log4j.LogManager;
@@ -48,6 +50,10 @@ public class Main {
         // Marshal and unmarshal example
         OrderJAXB.marshal(ord, "src/main/resources/jaxbxml/order.xml");
         Order order = OrderJAXB.unmarshal("src/main/resources/jaxbxml/order.xml");
+
+        // Json parsing example
+        OrderJackson.convertToJSON(ord, "src/main/resources/json/order.json");
+        Order orderRecover = OrderJackson.convertToObject("src/main/resources/json/order.json");
 
     }
 }

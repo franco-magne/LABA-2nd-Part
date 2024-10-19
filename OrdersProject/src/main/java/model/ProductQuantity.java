@@ -1,14 +1,19 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.*;
 
+@JsonRootName("productQuantity")
 @XmlRootElement(name = "productQuantity")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ProductQuantity {
 
+    @JsonProperty("product")
     @XmlElementRef(name = "product", type = Product.class)
     private Product product;
 
+    @JsonProperty("quantity")
     @XmlElement(name = "quantity")
     private int quantity;
 

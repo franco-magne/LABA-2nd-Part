@@ -1,0 +1,62 @@
+{
+  "schema": {
+
+    "categories": [
+      {
+        "idCategory": 1,
+        "name": "Electronics"
+      }, {
+        "idCategory": 2,
+        "name": "Clothing"
+      }
+    ],
+
+    "countries": [
+      {
+        "idCountry": 1,
+        "name": "USA"
+      }, {
+        "idCountry": 2,
+        "name": "Poland"
+      }, {
+        "idCountry": 3,
+        "name": "Argentina"
+      }
+    ],
+
+    "payments": [
+      {
+        "idPayment": 1,
+        "method": "Cash"
+      }, {
+        "idPayment": 2,
+        "method": "Credit card"
+      }
+    ],
+
+    "user": {
+      "idUser": 1,
+      "firstName": "Franco",
+      "lastName": "Magne",
+      "email": "francooo@gmail.com",
+      "address": "My House 456",
+      "phoneNumber": "1122334455",
+      "country": {
+        "idCountry": 3,
+        "name": "Argentina"
+      }
+    },
+
+    "store": {
+      "idStore": 1,
+      "name": "Just Sports",
+      "address": "Av. Sta. Fe 1955",
+      "reputation": 89,
+      "country": {
+        "idCountry": 3,
+        "name": "Argentina"
+      }
+    },
+
+  }
+}

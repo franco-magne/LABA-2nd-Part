@@ -1,17 +1,22 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+@JsonRootName("country")
 @XmlRootElement(name = "country")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Country {
 
+    @JsonProperty("idCountry")
     @XmlElement(name = "idCategory")
     private int idCountry;
 
+    @JsonProperty("name")
     @XmlElement(name = "name")
     private String name;
 
