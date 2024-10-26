@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.impl.CountryDAO">
+
+    <insert id="insert" parameterType="model.Country">
+        INSERT INTO country (name) VALUES (#{name});
+    </insert>
+
+
+    <update id="update" parameterType="model.Country">
+        UPDATE country SET name = #{name} WHERE (idCountry = #{idCountry});
+    </update>
+
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM country WHERE idCountry = #{idCountry};
+    </delete>
+
+
+    <select id="getAll" resultType="model.Country">
+        SELECT * FROM country;
+    </select>
+
+
+    <select id="getByID" parameterType="int" resultType="model.Country">
+        SELECT * FROM country WHERE idCountry = #{idCountry};
+    </select>
+</mapper>
