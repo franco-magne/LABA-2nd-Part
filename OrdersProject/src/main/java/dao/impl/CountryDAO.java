@@ -1,7 +1,8 @@
 package dao.impl;
 
 import dao.DAO;
-import model.Category;
+import model.Country;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,20 +10,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDAO extends AbstractDAO implements DAO<Category> {
+public class CountryDAO extends AbstractDAO implements DAO<Country> {
 
-    public CategoryDAO() {}
+    public CountryDAO() {}
 
     @Override
-    public Category getByID(int id) {
-        String sqlQuery = "SELECT * FROM Category WHERE (idCategory = ?)";
+    public Country getByID(int id) {
+        String sqlQuery = "SELECT * FROM country WHERE (idCountry = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                return new Category(rs.getInt("idCategory"), rs.getString("name"));
+                return new Country(
+                        rs.getInt("idCountry"),
+                        rs.getString("name")
+                );
             }
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
@@ -32,29 +36,29 @@ public class CategoryDAO extends AbstractDAO implements DAO<Category> {
     }
 
     @Override
-    public List<Category> getAll() {
-        List<Category> categoryList = new ArrayList<>();
-        String sqlQuery = "SELECT * FROM Category";
+    public List<Country> getAll() {
+        List<Country> countryList = new ArrayList<>();
+        String sqlQuery = "SELECT * FROM country";
 
         try (Statement st = getConnection().createStatement();
              ResultSet rs = st.executeQuery(sqlQuery)) {
 
             while (rs.next()) {
-                int idCategory = rs.getInt("idCategory");
-                String name = rs.getString("name");
-
-                categoryList.add(new Category(idCategory, name));
+                countryList.add(new Country(
+                        rs.getInt("idCountry"),
+                        rs.getString("name")
+                ));
             }
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
         }
 
-        return categoryList;
+        return countryList;
     }
 
     @Override
-    public void insert(Category obj) {
-        String sqlQuery = "INSERT INTO Category(name) VALUES (?)";
+    public void insert(Country obj) {
+        String sqlQuery = "INSERT INTO country (name) VALUES (?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
             stmt.setString(1, obj.getName());
@@ -65,12 +69,12 @@ public class CategoryDAO extends AbstractDAO implements DAO<Category> {
     }
 
     @Override
-    public void update(Category obj) {
-        String sqlQuery = "UPDATE Category SET name = ? WHERE (idCategory = ?)";
+    public void update(Country obj) {
+        String sqlQuery = "UPDATE country SET name = ? WHERE (idCountry = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
             stmt.setString(1, obj.getName());
-            stmt.setInt(2, obj.getIdCategory());
+            stmt.setInt(2, obj.getIdCountry());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
@@ -78,16 +82,14 @@ public class CategoryDAO extends AbstractDAO implements DAO<Category> {
     }
 
     @Override
-    public void delete(Category obj) {
-        String sqlQuery = "DELETE FROM Category WHERE (idCategory = ?)";
+    public void delete(Country obj) {
+        String sqlQuery = "DELETE FROM country WHERE (idCountry = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setInt(1, obj.getIdCategory());
+            stmt.setInt(1, obj.getIdCountry());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
         }
     }
-
-
 }
