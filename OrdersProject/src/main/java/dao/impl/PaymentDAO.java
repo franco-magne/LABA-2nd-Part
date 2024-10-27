@@ -1,7 +1,7 @@
 package dao.impl;
 
 import dao.DAO;
-import model.Category;
+import model.Payment;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,20 +9,23 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDAO extends AbstractDAO implements DAO<Category> {
+public class PaymentDAO extends AbstractDAO implements DAO<Payment> {
 
-    public CategoryDAO() {}
+    public PaymentDAO() {}
 
     @Override
-    public Category getByID(int id) {
-        String sqlQuery = "SELECT * FROM category WHERE (idCategory = ?)";
+    public Payment getByID(int id) {
+        String sqlQuery = "SELECT * FROM payment WHERE (idPayment = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                return new Category(rs.getInt("idCategory"), rs.getString("name"));
+                return new Payment(
+                    rs.getInt("idPayment"),
+                    rs.getString("method")
+                );
             }
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
@@ -32,32 +35,32 @@ public class CategoryDAO extends AbstractDAO implements DAO<Category> {
     }
 
     @Override
-    public List<Category> getAll() {
-        List<Category> categoryList = new ArrayList<>();
-        String sqlQuery = "SELECT * FROM category";
+    public List<Payment> getAll() {
+        List<Payment> paymentList = new ArrayList<>();
+        String sqlQuery = "SELECT * FROM payment";
 
         try (Statement st = getConnection().createStatement();
              ResultSet rs = st.executeQuery(sqlQuery)) {
 
             while (rs.next()) {
-                int idCategory = rs.getInt("idCategory");
-                String name = rs.getString("name");
-
-                categoryList.add(new Category(idCategory, name));
+                paymentList.add(new Payment(
+                   rs.getInt("idPayment"),
+                   rs.getString("method")
+                ));
             }
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
         }
 
-        return categoryList;
+        return paymentList;
     }
 
     @Override
-    public void insert(Category obj) {
-        String sqlQuery = "INSERT INTO category(name) VALUES (?)";
+    public void insert(Payment obj) {
+        String sqlQuery = "INSERT INTO payment(name) VALUES (?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setString(1, obj.getName());
+            stmt.setString(1, obj.getMethod());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
@@ -65,12 +68,12 @@ public class CategoryDAO extends AbstractDAO implements DAO<Category> {
     }
 
     @Override
-    public void update(Category obj) {
-        String sqlQuery = "UPDATE category SET name = ? WHERE (idCategory = ?)";
+    public void update(Payment obj) {
+        String sqlQuery = "UPDATE payment SET method = ? WHERE (idPayment = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setString(1, obj.getName());
-            stmt.setInt(2, obj.getIdCategory());
+            stmt.setString(1, obj.getMethod());
+            stmt.setInt(2, obj.getIdPayment());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.error(ex.getMessage());
@@ -78,11 +81,11 @@ public class CategoryDAO extends AbstractDAO implements DAO<Category> {
     }
 
     @Override
-    public void delete(Category obj) {
-        String sqlQuery = "DELETE FROM category WHERE (idCategory = ?)";
+    public void delete(Payment obj) {
+        String sqlQuery = "DELETE FROM payment WHERE (idPayment = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setInt(1, obj.getIdCategory());
+            stmt.setInt(1, obj.getIdPayment());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             logger.error(ex.getMessage());

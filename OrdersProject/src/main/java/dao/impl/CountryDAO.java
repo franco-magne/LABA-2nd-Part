@@ -2,7 +2,6 @@ package dao.impl;
 
 import dao.DAO;
 import model.Country;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -92,4 +91,5 @@ public class CountryDAO extends AbstractDAO implements DAO<Country> {
             logger.error(ex.getMessage());
         }
     }
+
 }

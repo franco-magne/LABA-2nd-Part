@@ -92,6 +92,12 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
+    public String getStringOrderDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
+        return sdf.format(orderDate);
+    }
+
     public Date getOrderDate() {
         return orderDate;
     }

@@ -17,7 +17,7 @@ public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
-
+        /*
         // Executing getAll from CategoryDAO
         List<Category> categoryList = new CategoryDAO().getAll();
         logger.info(categoryList);
@@ -54,6 +54,9 @@ public class Main {
         // Json parsing example
         OrderJackson.convertToJSON(ord, "src/main/resources/json/order.json");
         Order orderRecover = OrderJackson.convertToObject("src/main/resources/json/order.json");
+         */
+
+
 
     }
 }

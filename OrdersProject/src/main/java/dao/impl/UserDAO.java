@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO extends AbstractDAO implements DAO<User> {
+
     public UserDAO() {}
 
     @Override
@@ -29,7 +30,7 @@ public class UserDAO extends AbstractDAO implements DAO<User> {
                         rs.getString("email"),
                         rs.getString("address"),
                         rs.getString("phoneNumber"),
-                        new CountryDAO().getByID(rs.getInt("countryId"))
+                        new CountryDAO().getByID(rs.getInt("idCountry"))
                 );
             }
         } catch (SQLException ex) {
@@ -54,7 +55,7 @@ public class UserDAO extends AbstractDAO implements DAO<User> {
                         rs.getString("email"),
                         rs.getString("address"),
                         rs.getString("phoneNumber"),
-                        new CountryDAO().getByID(rs.getInt("countryId"))
+                        new CountryDAO().getByID(rs.getInt("idCountry"))
                 ));
             }
         } catch (SQLException ex) {
@@ -67,7 +68,7 @@ public class UserDAO extends AbstractDAO implements DAO<User> {
     @Override
     public void insert(User obj) {
         String sqlQuery = "INSERT INTO user (firstName, lastName, " +
-                "email, address, phoneNumber, countryId) VALUES (?, ?, ?, ?, ?, ?)";
+                "email, address, phoneNumber, idCountry) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
             stmt.setString(1, obj.getFirstName());
@@ -85,7 +86,7 @@ public class UserDAO extends AbstractDAO implements DAO<User> {
     @Override
     public void update(User obj) {
         String sqlQuery = "UPDATE user SET firstName = ?, lastName = ?, " +
-                "email = ?, address = ?, phoneNumber = ?, countryId = ? WHERE (idUser = ?)";
+                "email = ?, address = ?, phoneNumber = ?, idCountry = ? WHERE (idUser = ?)";
 
         try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
             stmt.setString(1, obj.getFirstName());
