@@ -18,7 +18,7 @@ public interface OrderMapper {
             "#{orderDate}, #{payment.idPayment}, #{isPaid})")
     void insert(Order order);
 
-    @Update("UPDATE `e-commerce`.order SET idUser = #{idUser}, totalPrice = #{totalPrice}, orderDate = #{orderDate}, " +
+    @Update("UPDATE `e-commerce`.order SET idUser = #{user.idUser}, totalPrice = #{totalPrice}, orderDate = #{orderDate}, " +
             "idPayment = #{payment.idPayment}, isPaid = #{isPaid} WHERE (idOrder = #{idOrder})")
     void update(Order order);
 
