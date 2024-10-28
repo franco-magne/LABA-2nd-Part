@@ -18,7 +18,7 @@ public interface ProductMapper {
     void insert(Product product);
 
     @Update("UPDATE product SET name = #{name}, description = #{description}, price = #{price}, stock = #{stock}, " +
-            "idCategory = #{idCategory}, idStore = #{idStore} WHERE (idProduct = #{idProduct})")
+            "idCategory = #{category.idCategory}, idStore = #{store.idStore} WHERE (idProduct = #{idProduct})")
     void update(Product product);
 
     @Delete("DELETE FROM product WHERE (idProduct = #{idProduct})")

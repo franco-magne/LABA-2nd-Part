@@ -13,10 +13,10 @@ public interface StoreMapper {
     @Select("SELECT * FROM store")
     List<Store> getAll();
 
-    @Insert("INSERT INTO store (name, address, reputation, idCountry) VALUES (#{name}, #{address}, #{reputation}, #{idCountry})")
+    @Insert("INSERT INTO store (name, address, reputation, idCountry) VALUES (#{name}, #{address}, #{reputation}, #{country.idCountry})")
     void insert(Store store);
 
-    @Update("UPDATE store SET name = #{name}, address = #{address}, reputation = #{reputation}, idCountry = #{idCountry} " +
+    @Update("UPDATE store SET name = #{name}, address = #{address}, reputation = #{reputation}, idCountry = #{country.idCountry} " +
             "WHERE (idStore = #{idStore})")
     void update(Store store);
 

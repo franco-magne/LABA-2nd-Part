@@ -14,11 +14,11 @@ public interface UserMapper {
     List<User> getAll();
 
     @Insert("INSERT INTO user (firstName, lastName, email, address, phoneNumber, idCountry) VALUES (#{firstName}, " +
-            "#{lastName}, #{email}, #{address}, #{phoneNumber}, #{idCountry})")
+            "#{lastName}, #{email}, #{address}, #{phoneNumber}, #{country.idCountry})")
     void insert(User user);
 
     @Update("UPDATE user SET firstName = #{firstName}, lastName = #{lastName}, email = #{email}, address = #{address}, " +
-            "phoneNumber = #{phoneNumber}, idCountry = #{idCountry} WHERE (idUser = #{idUser})")
+            "phoneNumber = #{phoneNumber}, idCountry = #{country.idCountry} WHERE (idUser = #{idUser})")
     void update(User user);
 
     @Delete("DELETE FROM user WHERE (idUser = #{idUser})")

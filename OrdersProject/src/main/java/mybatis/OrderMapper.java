@@ -19,7 +19,7 @@ public interface OrderMapper {
     void insert(Order order);
 
     @Update("UPDATE `e-commerce`.order SET idUser = #{idUser}, totalPrice = #{totalPrice}, orderDate = #{orderDate}, " +
-            "idPayment = #{idPayment}, isPaid = #{isPaid} WHERE (idOrder = #{idOrder})")
+            "idPayment = #{payment.idPayment}, isPaid = #{isPaid} WHERE (idOrder = #{idOrder})")
     void update(Order order);
 
     @Delete("DELETE FROM `e-commerce`.order WHERE (idOrder = #{idOrder})")
