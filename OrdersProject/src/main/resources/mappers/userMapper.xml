@@ -13,7 +13,10 @@
         <id property="email" column="email" />
         <id property="address" column="address" />
         <id property="phoneNumber" column="phoneNumber" />
-        <id property="idCountry" column="idCountry" />
+        <association property="country" javaType="model.Country">
+            <id property="idCountry" column="idCountry" />
+        </association>
+
 
     </resultMap>
 
@@ -27,12 +30,13 @@
 
     <insert id="insert" parameterType="model.User">
         INSERT INTO user (firstName, lastName, email, address, phoneNumber, idCountry)
-        VALUES (#{firstName}, #{lastName}, #{email}, #{address}, #{phoneNumber}, #{idCountry});
+        VALUES (#{firstName}, #{lastName}, #{email}, #{address}, #{phoneNumber}, #{country.idCountry});
     </insert>
 
 
     <update id="update" parameterType="model.User">
-        UPDATE user SET firstName = #{firstName}, lastName = #{lastName} WHERE (idUser = #{idUser});
+        UPDATE user SET firstName = #{firstName}, lastName = #{lastName}
+        WHERE (idUser = #{idUser});
     </update>
 
 

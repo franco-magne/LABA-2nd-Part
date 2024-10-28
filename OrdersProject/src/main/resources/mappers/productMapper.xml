@@ -11,8 +11,15 @@
         <id property="description" column="description" />
         <id property="price" column="price" />
         <id property="stock" column="stock" />
-        <id property="idCategory" column="idCategory" />
-        <id property="idStore" column="idStore" />
+
+        <association property="category" javaType="model.Category">
+            <id property="idCategory" column="idCategory" />
+        </association>
+
+        <association property="store" javaType="model.Store">
+            <id property="idStore" column="idStore" />
+        </association>
+
     </resultMap>
 
     <select id="getByID" parameterType="int" resultMap="productResult">
@@ -25,11 +32,12 @@
 
     <insert id="insert" parameterType="model.Product">
         INSERT INTO product (name, description, price, stock, idCategory, idStore)
-        VALUES (#{name}, #{description}, #{price}, #{stock}, #{idCategory}, #{idStore});
+        VALUES (#{name}, #{description}, #{price}, #{stock}, #{category.idCategory}, #{store.idStore});
     </insert>
 
     <update id="update" parameterType="model.Product">
-        UPDATE product SET name = #{name}, description = #{description}, price = #{price}, stock = #{stock}, idCategory = #{idCategory}, idStore = #{idStore} WHERE (idProduct = #{idProduct});
+        UPDATE product SET name = #{name}, description = #{description}, price = #{price}, stock = #{stock}, idCategory = #{category.idCategory}, idStore = #{store.idStore}
+        WHERE (idProduct = #{idProduct});
     </update>
 
     <delete id="delete" parameterType="int">

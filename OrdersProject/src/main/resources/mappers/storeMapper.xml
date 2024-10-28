@@ -11,7 +11,9 @@
         <id property="name" column="name" />
         <id property="address" column="address" />
         <id property="reputation" column="reputation" />
-        <id property="idCountry" column="idCountry" />
+        <association property="country" javaType="model.Country">
+            <id property="idCountry" column="idCountry" />
+        </association>
 
     </resultMap>
 
@@ -24,11 +26,11 @@
     </select>
 
     <insert id="insert" parameterType="model.Store">
-        INSERT INTO store (name, address, reputation, idCountry) VALUES (#{name}, #{address}, #{reputation}, #{idCountry});
+        INSERT INTO store (name, address, reputation, idCountry) VALUES (#{name}, #{address}, #{reputation}, #{country.idCountry});
     </insert>
 
     <update id="update" parameterType="model.Store">
-        UPDATE store SET name = #{name}, address = #{address}, reputation = #{reputation}, idCountry = #{idCountry}
+        UPDATE store SET name = #{name}, address = #{address}, reputation = #{reputation}, idCountry = #{country.idCountry}
         WHERE (idStore = #{idStore});
     </update>
 

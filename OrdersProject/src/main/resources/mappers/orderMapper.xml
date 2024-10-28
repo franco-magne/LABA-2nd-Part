@@ -6,14 +6,16 @@
 <mapper namespace="dao.impl.OrderDAO">
 
     <resultMap id="orderResult" type="model.Order">
-
         <id property="idOrder" column="idOrder"/>
-        <id property="idUser" column="idUser"/>
         <id property="totalPrice" column="totalPrice"/>
         <id property="orderDate" column="orderDate"/>
-        <id property="idPayment" column="idPayment"/>
         <id property="isPaid" column="isPaid"/>
-
+        <association property="user" javaType="model.User">
+            <id property="idUser" column="idUser"/>
+        </association>
+        <association property="payment" javaType="model.Payment">
+            <id property="idPayment" column="idPayment"/>
+        </association>
     </resultMap>
 
     <select id="getByID" parameterType="int" resultMap ="orderResult">
@@ -26,13 +28,13 @@
 
     <insert id="insert" parameterType="model.Order">
         INSERT INTO order (idUser, totalPrice, orderDate, idPayment, isPaid)
-        VALUES (#{idUser}, #{totalPrice}, #{orderDate}, #{idPayment}, #{isPaid});
+        VALUES (#{user.idUser}, #{totalPrice}, #{orderDate}, #{payment.idPayment}, #{isPaid});
     </insert>
 
 
     <update id="update" parameterType="model.Order">
-        UPDATE order SET idUser = #{idUser}, totalPrice = #{totalPrice}, orderDate = #{orderDate},
-        idPayment = #{idPayment}, isPaid = #{isPaid} WHERE (idOrder = #{idOrder});
+        UPDATE order SET idUser = #{user.idUser}, totalPrice = #{totalPrice}, orderDate = #{orderDate}, idPayment = #{payment.idPayment}, isPaid = #{isPaid}
+        WHERE (idOrder = #{idOrder});
     </update>
 
 
