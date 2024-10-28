@@ -1,16 +1,32 @@
 package servicelayer;
 
+import model.Category;
 import dao.impl.CategoryDAO;
 
-public class CategoryService {
-    private final CategoryDAO categoryDAO;
+import java.util.List;
 
-    public CategoryService(CategoryDAO categoryDAO) {
-        this.categoryDAO = categoryDAO;
+public class CategoryService {
+    private final CategoryDAO categoryDAO = new CategoryDAO();
+    // Logic regarding categories
+
+    public Category getCategory(int id){
+        return categoryDAO.getByID(id);
     }
 
-    public boolean checkCategoryExists(String category) {
-        return categoryDAO.getAll().stream()
-                .anyMatch(c -> c.getName().equals(category));
+    public List<Category> listCategory(){
+        return categoryDAO.getAll();
+    }
+
+    public void createCategory(int idCategory, String name){
+        Category c = new Category(idCategory, name);
+        categoryDAO.insert(c);
+    }
+
+    public void updateCategory(Category c){
+        categoryDAO.update(c);
+    }
+
+    public void deleteCategory(Category c){
+        categoryDAO.delete(c);
     }
 }

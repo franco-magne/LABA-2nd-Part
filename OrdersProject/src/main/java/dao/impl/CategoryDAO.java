@@ -2,6 +2,10 @@ package dao.impl;
 
 import dao.DAO;
 import model.Category;
+import mybatis.CategoryMapper;
+import org.apache.ibatis.session.SqlSession;
+import utils.MyBatisUtil;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,81 +15,46 @@ import java.util.List;
 
 public class CategoryDAO extends AbstractDAO implements DAO<Category> {
 
-    public CategoryDAO() {}
-
     @Override
     public Category getByID(int id) {
-        String sqlQuery = "SELECT * FROM category WHERE (idCategory = ?)";
-
-        try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return new Category(rs.getInt("idCategory"), rs.getString("name"));
-            }
-        } catch (SQLException ex) {
-            logger.error(ex.getMessage());
+        try (SqlSession session = MyBatisUtil.getSession()) {
+            CategoryMapper mapper = session.getMapper(CategoryMapper.class);
+            return mapper.getByID(id);
         }
-
-        return null;
     }
 
     @Override
     public List<Category> getAll() {
-        List<Category> categoryList = new ArrayList<>();
-        String sqlQuery = "SELECT * FROM category";
-
-        try (Statement st = getConnection().createStatement();
-             ResultSet rs = st.executeQuery(sqlQuery)) {
-
-            while (rs.next()) {
-                int idCategory = rs.getInt("idCategory");
-                String name = rs.getString("name");
-
-                categoryList.add(new Category(idCategory, name));
-            }
-        } catch (SQLException ex) {
-            logger.error(ex.getMessage());
-        }
-
-        return categoryList;
-    }
-
-    @Override
-    public void insert(Category obj) {
-        String sqlQuery = "INSERT INTO category(name) VALUES (?)";
-
-        try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setString(1, obj.getName());
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            logger.error(ex.getMessage());
+        try (SqlSession session = MyBatisUtil.getSession()) {
+            CategoryMapper mapper = session.getMapper(CategoryMapper.class);
+            return mapper.getAll();
         }
     }
 
     @Override
-    public void update(Category obj) {
-        String sqlQuery = "UPDATE category SET name = ? WHERE (idCategory = ?)";
-
-        try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setString(1, obj.getName());
-            stmt.setInt(2, obj.getIdCategory());
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            logger.error(ex.getMessage());
+    public void insert(Category category) {
+        try (SqlSession session = MyBatisUtil.getSession()) {
+            CategoryMapper mapper = session.getMapper(CategoryMapper.class);
+            mapper.insert(category);
+            session.commit();
         }
     }
 
     @Override
-    public void delete(Category obj) {
-        String sqlQuery = "DELETE FROM category WHERE (idCategory = ?)";
+    public void update(Category category) {
+        try (SqlSession session = MyBatisUtil.getSession()) {
+            CategoryMapper mapper = session.getMapper(CategoryMapper.class);
+            mapper.update(category);
+            session.commit();
+        }
+    }
 
-        try (PreparedStatement stmt = getConnection().prepareStatement(sqlQuery)) {
-            stmt.setInt(1, obj.getIdCategory());
-            stmt.executeUpdate();
-        } catch (SQLException ex) {
-            logger.error(ex.getMessage());
+    @Override
+    public void delete(Category category) {
+        try (SqlSession session = MyBatisUtil.getSession()) {
+            CategoryMapper mapper = session.getMapper(CategoryMapper.class);
+            mapper.delete(category);
+            session.commit();
         }
     }
 

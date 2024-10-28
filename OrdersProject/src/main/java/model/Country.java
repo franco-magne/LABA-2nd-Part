@@ -13,7 +13,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 public class Country {
 
     @JsonProperty("idCountry")
-    @XmlElement(name = "idCategory")
+    @XmlElement(name = "idCountry") //edit: it was "idCategory"
     private int idCountry;
 
     @JsonProperty("name")

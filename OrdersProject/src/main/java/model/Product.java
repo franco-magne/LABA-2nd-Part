@@ -34,7 +34,7 @@ public class Product {
     private Category category;
 
     @JsonProperty("store")
-    @XmlElementRef(name = "category", type = Store.class)
+    @XmlElementRef(name = "store", type = Store.class) //edit: it was "category"
     private Store store;
 
     public Product() {}

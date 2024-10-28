@@ -14,7 +14,7 @@ public interface ProductMapper {
     List<Product> getAll();
 
     @Insert("INSERT INTO product (name, description, price, stock, idCategory, idStore) VALUES (#{name}, #{description}, " +
-            "#{price}, #{stock}, #{idCategory}, #{idStore})")
+            "#{price}, #{stock}, #{category.idCategory}, #{store.idStore})")
     void insert(Product product);
 
     @Update("UPDATE product SET name = #{name}, description = #{description}, price = #{price}, stock = #{stock}, " +

@@ -20,11 +20,11 @@
         SELECT * FROM country WHERE idCountry = #{idCountry};
     </select>
 
-    <insert id="insert" parameterType="model.CountryDAO">
+    <insert id="insert" parameterType="model.Country">
         INSERT INTO country (name) VALUES (#{name});
     </insert>
 
-    <update id="update" parameterType="model.CountryDAO">
+    <update id="update" parameterType="model.Country">
         UPDATE country SET name = #{name} WHERE (idCountry = #{idCountry});
     </update>
 

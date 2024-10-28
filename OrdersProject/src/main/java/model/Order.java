@@ -19,7 +19,7 @@ public class Order {
     private int idOrder;
 
     @JsonProperty("user")
-    @XmlElementRef(name = "country", type = User.class)
+    @XmlElementRef(name = "user", type = User.class) //edit: it was "country"
     private User user;
 
     @JsonProperty("totalPrice")
@@ -31,7 +31,7 @@ public class Order {
     private Date orderDate;
 
     @JsonProperty("payment")
-    @XmlElementRef(name = "country", type = Payment.class)
+    @XmlElementRef(name = "payment", type = Payment.class) //edit: it was "country"
     private Payment payment;
 
     @JsonProperty("isPaid")

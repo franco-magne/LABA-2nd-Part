@@ -7,9 +7,13 @@ import jaxb.OrderJAXB;
 import model.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import servicelayer.CategoryService;
+import servicelayer.*;
 import utils.xml.StAXParser;
 import utils.xml.XMLValidator;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -57,6 +61,59 @@ public class Main {
          */
 
 
+        // TESTING IF IT RUNS OR NOT
+        CountryService countryService = new CountryService();
+        StoreService storeService = new StoreService();
+        UserService userService = new UserService();
+        ProductService productService = new ProductService();
+        PaymentService paymentService = new PaymentService();
+        OrderService orderService = new OrderService();
+        CategoryService categoryService = new CategoryService();
 
+            // DISPLAYING DATA
+        logger.info("LOADING SOME DATA FROM THE DATABASE...");
+        Country c = countryService.getCountry(1);
+        logger.info("LOADED COUNTRY '" + c.getName() + "' FROM DATABASE"); // It should display 'USA'
+
+        Store s = storeService.getStore(1);
+        logger.info("LOADED STORE '" + s.getName() + "' FROM DATABASE"); // It should display 'Just Sports'
+
+        User u = userService.getUser(1);
+        logger.info("LOADED USER '" + u.getFirstName() + "' FROM DATABASE"); // It should display 'Franco'
+
+        Category category = categoryService.getCategory(7);
+        logger.info("LOADED CATEGORY '" + category.getName() + "' FROM DATABASE"); // It should display 'Automotive'
+
+        Payment payment = paymentService.getPayment(1);
+        logger.info("LOADED PAYMENT '" + payment.getMethod() + "' FROM DATABASE"); // It should display 'Cash'
+
+        // Creating a product and inserting it into the database (auto-incremental index)
+        Product p = new Product();
+        p.setIdProduct(1);
+        p.setName("Toyota AE86");
+        p.setDescription("It's a car from Initial D");
+        p.setCategory(category);
+        p.setPrice(14000.0);
+        p.setStock(1);
+        p.setStore(s);
+        productService.createProduct(p);
+        logger.info("INSERTED PRODUCT '" + p.getName() + "' INTO THE DATABASE");
+
+        Order o = new Order();
+        o.setIdOrder(1);
+        o.setIsPaid(true);
+        o.setPayment(payment);
+        o.setUser(u);
+        Date d = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
+        o.setOrderDate(d);
+
+        List<ProductQuantity> listOfProductsToOrder = new ArrayList<>();
+
+        int quantity = 1;
+        ProductQuantity pq = new ProductQuantity(p, quantity);
+        listOfProductsToOrder.add(pq);
+
+        orderService.createOrder(o, listOfProductsToOrder);
+        logger.info("INSERTED ORDER NO." + o.getIdOrder() + " INTO THE DATABASE"); // Can't create multiple order_product registries for each hypothetical product  in the ListOfProductsToOrder because we don't have the mapper for it (I think (I really, really tried guys ToT))
     }
 }

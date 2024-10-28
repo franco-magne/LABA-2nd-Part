@@ -29,6 +29,7 @@
         <mapper resource="mappers/productMapper.xml"/>
         <mapper resource="mappers/storeMapper.xml"/>
         <mapper resource="mappers/userMapper.xml"/>
+        <package name="mybatis"/>
     </mappers>
 
 </configuration>

@@ -7,7 +7,7 @@ import java.util.List;
 @Mapper
 public interface PaymentMapper {
 
-    @Select("SELECT * FROM payment WHERE (idPayment = #{idPayment}")
+    @Select("SELECT * FROM payment WHERE idPayment = #{idPayment}")
     Payment getByID(int id);
 
     @Select("SELECT * FROM payment")
