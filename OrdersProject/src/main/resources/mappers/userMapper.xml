@@ -5,6 +5,26 @@
 
 <mapper namespace="dao.impl.UserDAO">
 
+    <resultMap id="userResult" type="model.User" >
+
+        <id property="idUser" column="idUser" />
+        <id property="firstName" column="firstName" />
+        <id property="lastName" column="lastName" />
+        <id property="email" column="email" />
+        <id property="address" column="address" />
+        <id property="phoneNumber" column="phoneNumber" />
+        <id property="idCountry" column="idCountry" />
+
+    </resultMap>
+
+    <select id="getByID" parameterType="int" resultMap="userResult">
+        SELECT * FROM user WHERE idUser = #{idUser};
+    </select>
+
+    <select id="getAll" resultMap="userResult">
+        SELECT * FROM user;
+    </select>
+
     <insert id="insert" parameterType="model.User">
         INSERT INTO user (firstName, lastName, email, address, phoneNumber, idCountry)
         VALUES (#{firstName}, #{lastName}, #{email}, #{address}, #{phoneNumber}, #{idCountry});
@@ -20,13 +40,4 @@
         DELETE FROM user WHERE idUser = #{idUser};
     </delete>
 
-
-    <select id="getAll" resultType="model.User">
-        SELECT * FROM user;
-    </select>
-
-
-    <select id="getByID" parameterType="int" resultType="model.User">
-        SELECT * FROM user WHERE idUser = #{idUser};
-    </select>
 </mapper>

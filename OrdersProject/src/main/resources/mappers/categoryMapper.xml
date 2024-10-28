@@ -5,27 +5,31 @@
 
 <mapper namespace="dao.impl.CategoryDAO">
 
+    <resultMap id="categoryResult" type="model.Category" >
+
+        <id property="idCategory" column="idCategory"/>
+        <id property="name" column="name"/>
+
+    </resultMap>
+
+    <select id="getByID" parameterType="int" resultMap="categoryResult">
+        SELECT * FROM category WHERE idCategory = #{idCategory};
+    </select>
+
+    <select id="getAll" resultMap="categoryResult">
+        SELECT * FROM category;
+    </select>
+
     <insert id="insert" parameterType="model.Category">
         INSERT INTO category (name) VALUES (#{name});
     </insert>
-
 
     <update id="update" parameterType="model.Category">
         UPDATE category SET name = #{name} WHERE (idCategory = #{idCategory});
     </update>
 
-
     <delete id="delete" parameterType="int">
         DELETE FROM category WHERE idCategory = #{idCategory};
     </delete>
 
-
-    <select id="getAll" resultType="model.Category">
-        SELECT * FROM category;
-    </select>
-
-
-    <select id="getByID" parameterType="int" resultType="model.Category">
-        SELECT * FROM category WHERE idCategory = #{idCategory};
-    </select>
 </mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.impl.OrderDAO">
+
+    <resultMap id="orderResult" type="model.Order">
+
+        <id property="idOrder" column="idOrder"/>
+        <id property="idUser" column="idUser"/>
+        <id property="totalPrice" column="totalPrice"/>
+        <id property="orderDate" column="orderDate"/>
+        <id property="idPayment" column="idPayment"/>
+        <id property="isPaid" column="isPaid"/>
+
+    </resultMap>
+
+    <select id="getByID" parameterType="int" resultMap ="orderResult">
+        SELECT * FROM order WHERE (idOrder = #{idOrder});
+    </select>
+
+    <select id="getAll" resultMap ="orderResult">
+        SELECT * FROM order;
+    </select>
+
+    <insert id="insert" parameterType="model.Order">
+        INSERT INTO order (idUser, totalPrice, orderDate, idPayment, isPaid)
+        VALUES (#{idUser}, #{totalPrice}, #{orderDate}, #{idPayment}, #{isPaid});
+    </insert>
+
+
+    <update id="update" parameterType="model.Order">
+        UPDATE order SET idUser = #{idUser}, totalPrice = #{totalPrice}, orderDate = #{orderDate},
+        idPayment = #{idPayment}, isPaid = #{isPaid} WHERE (idOrder = #{idOrder});
+    </update>
+
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM order WHERE (idOrder = #{idOrder});
+    </delete>
+
+</mapper>

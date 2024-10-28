@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.impl.StoreDAO">
+
+    <resultMap id="storeResult" type="model.Store" >
+
+        <id property="idStore" column="idStore" />
+        <id property="name" column="name" />
+        <id property="address" column="address" />
+        <id property="reputation" column="reputation" />
+        <id property="idCountry" column="idCountry" />
+
+    </resultMap>
+
+    <select id="getByID" parameterType="int" resultMap="storeResult">
+        SELECT * FROM store WHERE (idStore = #{idStore});
+    </select>
+
+    <select id="getAll" resultMap="storeResult">
+        SELECT * FROM store;
+    </select>
+
+    <insert id="insert" parameterType="model.Store">
+        INSERT INTO store (name, address, reputation, idCountry) VALUES (#{name}, #{address}, #{reputation}, #{idCountry});
+    </insert>
+
+    <update id="update" parameterType="model.Store">
+        UPDATE store SET name = #{name}, address = #{address}, reputation = #{reputation}, idCountry = #{idCountry}
+        WHERE (idStore = #{idStore});
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM store WHERE (idStore = #{idStore});
+    </delete>
+
+</mapper>

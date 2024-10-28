@@ -23,8 +23,12 @@
 
     <mappers>
         <mapper resource="mappers/categoryMapper.xml"/>
-        <mapper resource="mappers/userMapper.xml"/>
         <mapper resource="mappers/countryMapper.xml"/>
+        <mapper resource="mappers/orderMapper.xml"/>
+        <mapper resource="mappers/paymentMapper.xml"/>
+        <mapper resource="mappers/productMapper.xml"/>
+        <mapper resource="mappers/storeMapper.xml"/>
+        <mapper resource="mappers/userMapper.xml"/>
     </mappers>
 
 </configuration>

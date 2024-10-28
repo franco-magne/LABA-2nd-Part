@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.impl.ProductDAO">
+
+    <resultMap id="productResult" type="model.Product" >
+        <id property="idProduct" column="idProduct" />
+        <id property="name" column="name" />
+        <id property="description" column="description" />
+        <id property="price" column="price" />
+        <id property="stock" column="stock" />
+        <id property="idCategory" column="idCategory" />
+        <id property="idStore" column="idStore" />
+    </resultMap>
+
+    <select id="getByID" parameterType="int" resultMap="productResult">
+        SELECT * FROM product WHERE (idProduct = #{idProduct});
+    </select>
+
+    <select id="getAll" resultMap="productResult">
+        SELECT * FROM product;
+    </select>
+
+    <insert id="insert" parameterType="model.Product">
+        INSERT INTO product (name, description, price, stock, idCategory, idStore)
+        VALUES (#{name}, #{description}, #{price}, #{stock}, #{idCategory}, #{idStore});
+    </insert>
+
+    <update id="update" parameterType="model.Product">
+        UPDATE product SET name = #{name}, description = #{description}, price = #{price}, stock = #{stock}, idCategory = #{idCategory}, idStore = #{idStore} WHERE (idProduct = #{idProduct});
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM product WHERE (idProduct = #{idProduct});
+    </delete>
+
+</mapper>
