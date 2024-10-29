@@ -213,3 +213,157 @@
 2024-10-28 18:08:01 [main] INFO  org.laba.Main - LOADED PAYMENT 'Cash' FROM DATABASE
 2024-10-28 18:08:01 [main] INFO  org.laba.Main - INSERTED PRODUCT 'Toyota AE86' INTO THE DATABASE
 2024-10-28 18:08:01 [main] INFO  org.laba.Main - INSERTED ORDER NO.1 INTO THE DATABASE
+2024-10-28 23:51:13 [main] INFO  org.laba.Main - LOADING SOME DATA FROM THE DATABASE...
+2024-10-28 23:51:37 [main] INFO  org.laba.Main - LOADING SOME DATA FROM THE DATABASE...
+2024-10-28 23:51:38 [main] INFO  org.laba.Main - LOADED COUNTRY 'USA' FROM DATABASE
+2024-10-28 23:51:38 [main] INFO  org.laba.Main - LOADED STORE 'Just Sports' FROM DATABASE
+2024-10-28 23:51:38 [main] INFO  org.laba.Main - LOADED USER 'Franco' FROM DATABASE
+2024-10-28 23:51:38 [main] INFO  org.laba.Main - LOADED CATEGORY 'Automotive' FROM DATABASE
+2024-10-28 23:51:38 [main] INFO  org.laba.Main - LOADED PAYMENT 'Cash' FROM DATABASE
+2024-10-28 23:51:38 [main] INFO  org.laba.Main - INSERTED PRODUCT 'Toyota AE86' INTO THE DATABASE
+2024-10-28 23:51:39 [main] INFO  org.laba.Main - INSERTED ORDER NO.1 INTO THE DATABASE
+2024-10-29 00:17:52 [main] INFO  org.laba.Main - LOADING SOME DATA FROM THE DATABASE...
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - LOADED COUNTRY 'USA' FROM DATABASE
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - LOADED STORE 'Just Sports' FROM DATABASE
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - LOADED USER 'Franco' FROM DATABASE
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - LOADED CATEGORY 'Automotive' FROM DATABASE
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - LOADED PAYMENT 'Cash' FROM DATABASE
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - INSERTED PRODUCT 'Toyota AE86' INTO THE DATABASE
+2024-10-29 00:17:53 [main] INFO  org.laba.Main - INSERTED ORDER NO.1 INTO THE DATABASE
+2024-10-29 11:13:14 [main] INFO  org.laba.Main - LOADING SOME DATA FROM THE DATABASE...
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - LOADED COUNTRY 'USA' FROM DATABASE
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - LOADED STORE 'Just Sports' FROM DATABASE
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - LOADED USER 'Franco' FROM DATABASE
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - LOADED CATEGORY 'Automotive' FROM DATABASE
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - LOADED PAYMENT 'Cash' FROM DATABASE
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - INSERTED PRODUCT 'Toyota AE86' INTO THE DATABASE
+2024-10-29 11:13:15 [main] INFO  org.laba.Main - INSERTED ORDER NO.1 INTO THE DATABASE
+2024-10-29 11:26:02 [main] INFO  org.laba.Main - LOADING SOME DATA FROM THE DATABASE...
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - LOADED COUNTRY 'USA' FROM DATABASE
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - LOADED STORE 'Just Sports' FROM DATABASE
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - LOADED USER 'Franco' FROM DATABASE
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - LOADED CATEGORY 'Automotive' FROM DATABASE
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - LOADED PAYMENT 'Cash' FROM DATABASE
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - INSERTED PRODUCT 'Toyota AE86' INTO THE DATABASE
+2024-10-29 11:26:03 [main] INFO  org.laba.Main - INSERTED ORDER NO.1 INTO THE DATABASE
+2024-10-29 12:27:20 [main] INFO  org.laba.Main - {Factory, Abstract Factory, Facade, MVC}
+2024-10-29 12:27:20 [main] INFO  org.laba.Main - Factory: Created String object with value 'A string object.'
+2024-10-29 12:27:20 [main] INFO  org.laba.Main - Factory: Created Integer object with value 0
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - {Factory}
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Factory: Created String object with value 'A string object.'
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Factory: Created Integer object with value 0
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - {Abstract Factory}
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product B1
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A2
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 12:49:01 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product B2
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - {Factory}
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Factory: Created String object with value 'A string object.'
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Factory: Created Integer object with value 0
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - {Abstract Factory}
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 12:49:23 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Factory: Created String object with value 'A string object.'
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Factory: Created Integer object with value 0
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 12:49:40 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Created String object with value 'A string object.'
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Created Integer object with value 0
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-29 13:34:56 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Created String object with value 'A string object.'
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Created Integer object with value 0
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-29 13:36:59 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Used Factory to create 'obj1' String object with value 'A string object.'
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Used Factory to create 'obj2' Integer object with value = 0
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-29 13:38:37 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Used Factory to create 'obj1' String object with value 'A string object.'
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Used Factory to create 'obj2' Integer object with value = 0
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-29 13:39:35 [main] INFO  org.laba.Main - ENTERING TO THE MVC DEMO MENU...
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Used Factory to create 'obj1' String object with value 'A string object.'
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Used Factory to create 'obj2' Integer object with value = 0
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-29 13:40:45 [main] INFO  org.laba.Main - ENTERING TO THE MVC DEMO MENU...

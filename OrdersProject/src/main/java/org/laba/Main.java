@@ -1,20 +1,11 @@
 package org.laba;
 
-import dao.impl.CategoryDAO;
-import jackson.CategoryJackson;
-import jackson.OrderJackson;
-import jaxb.OrderJAXB;
-import model.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import servicelayer.*;
-import utils.xml.StAXParser;
-import utils.xml.XMLValidator;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import patterns.abstractfactory.*;
+import patterns.facade.Facade;
+import patterns.factory.Factory;
+import patterns.mvc.MVC;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
@@ -61,6 +52,7 @@ public class Main {
 
 
         // TESTING IF IT RUNS OR NOT
+        /*
         CountryService countryService = new CountryService();
         StoreService storeService = new StoreService();
         UserService userService = new UserService();
@@ -114,6 +106,63 @@ public class Main {
 
         orderService.createOrder(o, listOfProductsToOrder);
         logger.info("INSERTED ORDER NO." + o.getIdOrder() + " INTO THE DATABASE"); // Can't create multiple order_product registries for each hypothetical product in the ListOfProductsToOrder because we don't have the mapper for it YET (I think (I really, really tried guys ToT))
+        */
+
+        Factory genericFactory = new Factory();
+        logger.info("-------------{Factory}-------------");
+
+        Object obj1 = genericFactory.createObject("String");
+        obj1 = "A string object.";
+        logger.info("Used Factory to create 'obj1' String object with value '" + obj1 + "'");
+
+        Object obj2 = genericFactory.createObject("Integer");
+        logger.info("Used Factory to create 'obj2' Integer object with value = " + obj2);
+
+
+        AbstractFactory factoryA = new FactoryA();
+        AbstractFactory factoryB = new FactoryB();
+        logger.info("-------------{Abstract Factory}-------------");
+
+        IProductA productA1 = factoryA.createProductA();
+        logger.info("Used FactoryA to create productA1..");
+        logger.info("Output of productA1.createProduct(): "+productA1.createProduct());
+
+        IProductB productB1 = factoryA.createProductB();
+        logger.info("Used FactoryA to create productB1..");
+        logger.info("Output of productB1.createProduct(): "+productB1.createProduct());
+
+        IProductA productA2 = factoryB.createProductA();
+        logger.info("Used FactoryB to create productA2..");
+        logger.info("Output of productA2.createProduct(): "+productA2.createProduct());
+
+        IProductB productB2 =  factoryB.createProductB();
+        logger.info("Used FactoryB to create productB2..");
+        logger.info("Output of productB2.createProduct(): "+productB2.createProduct());
+
+
+        Facade facade = new Facade();
+        logger.info("-------------{Facade}-------------");
+
+        Object complexRequirementObjectResult = facade.complexOperation();
+        logger.info("The facade executed a complex method and got: " + complexRequirementObjectResult);
+
+        Object simpleRequirementObjectResult = facade.simpleOperation();
+        logger.info("The facade executed a simple method and got: " + simpleRequirementObjectResult);
+
+        MVC mvc = new MVC();
+        logger.info("-------------{MVC}-------------");
+        boolean enterMVCDemo = true; // Cambien esto a "false" para que el menu no los moleste al testear su codigo en el main ;)
+        if (enterMVCDemo){
+            logger.info("ENTERING TO THE MVC DEMO MENU...");
+            mvc.showMenu();
+        }
+        else{
+            logger.info("MVC DEMO WAS SKIPPED");
+        }
+
+        // Su codigo
+
+
 
     }
 }
