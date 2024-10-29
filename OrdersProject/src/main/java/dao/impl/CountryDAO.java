@@ -5,12 +5,6 @@ import model.Country;
 import mybatis.CountryMapper;
 import org.apache.ibatis.session.SqlSession;
 import utils.MyBatisUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CountryDAO extends AbstractDAO implements DAO<Country> {

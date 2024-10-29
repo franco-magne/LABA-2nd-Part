@@ -1,33 +1,30 @@
 package servicelayer;
 
 import dao.impl.ProductDAO;
-import model.Category;
 import model.Product;
-import model.Store;
-
 import java.util.List;
 
 public class ProductService {
     private final ProductDAO productDAO = new ProductDAO();
     //Logic regarding products
 
-    public Product getProduct(int id){
+    public Product getProduct(int id) {
         return productDAO.getByID(id);
     }
 
-    public List<Product> listProduct(){
+    public List<Product> listProduct() {
         return productDAO.getAll();
     }
 
-    public void createProduct(Product p){
+    public void createProduct(Product p) {
         productDAO.insert(p);
     }
 
-    public void updateProduct(Product p){
+    public void updateProduct(Product p) {
         productDAO.update(p);
     }
 
-    public void deleteProduct(Product p){
+    public void deleteProduct(Product p) {
         productDAO.delete(p);
     }
 }

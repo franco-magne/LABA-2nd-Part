@@ -2,19 +2,17 @@ package servicelayer;
 
 import dao.impl.OrderDAO;
 import model.*;
-
-import java.util.Date;
 import java.util.List;
 
-public class OrderService{
+public class OrderService {
     private final OrderDAO orderDAO = new OrderDAO();
     // Logic regarding orders
 
-    public Order getOrder(int id){
+    public Order getOrder(int id) {
         return orderDAO.getByID(id);
     }
 
-    public List<Order> listOrder(){
+    public List<Order> listOrder() {
         return orderDAO.getAll();
     }
 
@@ -30,11 +28,11 @@ public class OrderService{
         orderDAO.insert(o); //sadly we don't have a mapper for order_product (and I will NOT do the entire thing), otherwise I could've code a loop to insert the appropiate amount of registries into that table, I guess we just do one-product orders for now.
     }
 
-    public void updateOrder(Order o){
+    public void updateOrder(Order o) {
         orderDAO.update(o);
     }
 
-    public void deleteOrder(Order o){
+    public void deleteOrder(Order o) {
         orderDAO.delete(o);
     }
 }

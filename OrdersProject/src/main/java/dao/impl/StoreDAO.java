@@ -5,12 +5,6 @@ import model.Store;
 import mybatis.StoreMapper;
 import org.apache.ibatis.session.SqlSession;
 import utils.MyBatisUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StoreDAO extends AbstractDAO implements DAO<Store> {

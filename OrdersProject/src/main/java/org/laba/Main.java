@@ -10,7 +10,6 @@ import org.apache.logging.log4j.Logger;
 import servicelayer.*;
 import utils.xml.StAXParser;
 import utils.xml.XMLValidator;
-
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class Main {
         OrderService orderService = new OrderService();
         CategoryService categoryService = new CategoryService();
 
-            // DISPLAYING DATA
+        // DISPLAYING DATA
         logger.info("LOADING SOME DATA FROM THE DATABASE...");
         Country c = countryService.getCountry(1);
         logger.info("LOADED COUNTRY '" + c.getName() + "' FROM DATABASE"); // It should display 'USA'
@@ -114,6 +113,7 @@ public class Main {
         listOfProductsToOrder.add(pq);
 
         orderService.createOrder(o, listOfProductsToOrder);
-        logger.info("INSERTED ORDER NO." + o.getIdOrder() + " INTO THE DATABASE"); // Can't create multiple order_product registries for each hypothetical product  in the ListOfProductsToOrder because we don't have the mapper for it (I think (I really, really tried guys ToT))
+        logger.info("INSERTED ORDER NO." + o.getIdOrder() + " INTO THE DATABASE"); // Can't create multiple order_product registries for each hypothetical product in the ListOfProductsToOrder because we don't have the mapper for it YET (I think (I really, really tried guys ToT))
+
     }
 }

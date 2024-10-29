@@ -5,12 +5,6 @@ import model.User;
 import mybatis.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import utils.MyBatisUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO extends AbstractDAO implements DAO<User> {
@@ -57,4 +51,5 @@ public class UserDAO extends AbstractDAO implements DAO<User> {
             session.commit();
         }
     }
+
 }

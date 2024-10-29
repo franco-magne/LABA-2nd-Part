@@ -5,12 +5,6 @@ import model.Category;
 import mybatis.CategoryMapper;
 import org.apache.ibatis.session.SqlSession;
 import utils.MyBatisUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO extends AbstractDAO implements DAO<Category> {

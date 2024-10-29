@@ -2,16 +2,9 @@ package dao.impl;
 
 import dao.DAO;
 import model.Order;
-import model.Product;
 import mybatis.OrderMapper;
 import org.apache.ibatis.session.SqlSession;
 import utils.MyBatisUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDAO extends AbstractDAO implements DAO<Order> {
