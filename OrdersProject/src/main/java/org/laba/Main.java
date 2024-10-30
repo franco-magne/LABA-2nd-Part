@@ -1,11 +1,22 @@
 package org.laba;
 
+import model.Order;
+import model.Payment;
+import model.Product;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import patterns.abstractfactory.*;
+import patterns.decorator.IUser;
 import patterns.facade.Facade;
 import patterns.factory.Factory;
 import patterns.mvc.MVC;
+import patterns.proxy.IPayment;
+import patterns.proxy.PaymentProxy;
+import patterns.strategy.BankTransferPayment;
+import patterns.strategy.CreditCardPayment;
+import patterns.strategy.IPaymentStrategy;
+import servicelayer.PaymentService;
+import servicelayer.UserService;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
@@ -151,7 +162,7 @@ public class Main {
 
         MVC mvc = new MVC();
         logger.info("-------------{MVC}-------------");
-        boolean enterMVCDemo = true; // Cambien esto a "false" para que el menu no los moleste al testear su codigo en el main ;)
+        boolean enterMVCDemo = false; // Cambien esto a "false" para que el menu no los moleste al testear su codigo en el main ;)
         if (enterMVCDemo){
             logger.info("ENTERING TO THE MVC DEMO MENU...");
             mvc.showMenu();
@@ -160,7 +171,52 @@ public class Main {
             logger.info("MVC DEMO WAS SKIPPED");
         }
 
-        // Su codigo
+
+
+        logger.info("-------------{Decorator}-------------");
+
+        UserService userService = new UserService();
+
+        IUser decoratedUser1 = userService.getUserWithLocation(3);
+        logger.info("Used IUser to create 'decoratedUser1' object with Location Type '" + decoratedUser1.getLocationType() + "'");
+        decoratedUser1.assemble();
+
+        IUser decoratedUser2 = userService.getUserWithLocation(1);
+        logger.info("Used IUser to create 'decoratedUser2' object with Location Type '" + decoratedUser2.getLocationType() + "'");
+        decoratedUser2.assemble();
+
+
+
+        logger.info("-------------{Proxy}-------------");
+
+        PaymentService paymentService = new PaymentService();
+        Payment payment = paymentService.getPayment(3);
+
+        IPayment authorizedPayment = new PaymentProxy(payment, true);
+        logger.info("Used IPayment to create 'authorizedPayment' PaymentProxy object.");
+        authorizedPayment.processPayment();
+
+        IPayment unauthorizedPayment = new PaymentProxy(payment, false);
+        logger.info("Used IPayment to create 'unauthorizedPayment' PaymentProxy object.");
+        unauthorizedPayment.processPayment();
+
+
+        logger.info("-------------{Strategy}-------------");
+
+        double amountBT = 150.00;
+        double amountCC = 172.5;
+        IPaymentStrategy creditCardPaymentStrategy  = new CreditCardPayment();
+        IPaymentStrategy psBankTransfer = new BankTransferPayment();
+
+        Order orderCC = new Order(creditCardPaymentStrategy );
+        logger.info("Used IPaymentStrategy to create 'CreditCardPayment' strategy for 'orderCC'.");
+        logger.info("Processing order with CreditCardPayment strategy: Amount = {}", amountCC);
+        orderCC.processOrder(amountCC);
+
+        Order orderBT = new Order(psBankTransfer);
+        logger.info("Used IPaymentStrategy to create 'BankTransferPayment' strategy for 'orderBT'.");
+        logger.info("Processing order with BankTransferPayment strategy: Amount = {}", amountBT);
+        orderBT.processOrder(amountBT);
 
 
 

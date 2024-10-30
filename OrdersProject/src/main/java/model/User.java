@@ -3,11 +3,16 @@ package model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import patterns.decorator.ForeignUser;
+import patterns.decorator.IUser;
 
 @JsonRootName("user")
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class User {
+public class User implements IUser {
+    private static final Logger logger = LogManager.getLogger(User.class);
 
     @JsonProperty("idUser")
     @XmlElement(name = "idUser")
@@ -36,6 +41,7 @@ public class User {
     @JsonProperty("country")
     @XmlElementRef(name = "country", type = Country.class)
     private Country country;
+    private int idCountry;
 
     public User() {}
 
@@ -47,6 +53,7 @@ public class User {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.country = country;
+        this.idCountry = country.getIdCountry();
     }
 
     @Override
@@ -113,7 +120,19 @@ public class User {
         return country;
     }
 
+    public int getIdCountry() {return this.idCountry;}
+
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    @Override
+    public void assemble() {
+        logger.info("Assembling basic user details");
+    }
+
+    @Override
+    public String getLocationType() {
+        return "Undefined Location Type";
     }
 }

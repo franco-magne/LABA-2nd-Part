@@ -367,3 +367,78 @@
 2024-10-29 13:40:45 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
 2024-10-29 13:40:45 [main] INFO  org.laba.Main - -------------{MVC}-------------
 2024-10-29 13:40:45 [main] INFO  org.laba.Main - ENTERING TO THE MVC DEMO MENU...
+2024-10-29 21:35:55 [main] INFO  org.laba.Main - -------------{Decorator}-------------
+2024-10-29 21:36:02 [main] INFO  org.laba.Main - Used IUser to create 'user' object with return value for Location Type'Foreign'
+2024-10-29 21:36:02 [main] INFO  org.laba.Main - -------------{Proxy}-------------
+2024-10-30 01:05:03 [main] INFO  org.laba.Main - -------------{Decorator}-------------
+2024-10-30 01:05:06 [main] INFO  org.laba.Main - Used IUser to create 'user' object with return value for Location Type' Foreign'
+2024-10-30 01:05:06 [main] INFO  org.laba.Main - -------------{Proxy}-------------
+2024-10-30 01:05:06 [main] INFO  org.laba.Main - -------------{Strategy}-------------
+2024-10-30 01:05:06 [main] INFO  org.laba.Main - Used IPaymentStrategy to create CreditCardPayment..
+2024-10-30 01:05:06 [main] INFO  org.laba.Main - Used IPaymentStrategy to create BankTransferPayment..
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Used Factory to create 'obj1' String object with value 'A string object.'
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Used Factory to create 'obj2' Integer object with value = 0
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-30 11:36:20 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-30 11:36:21 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-30 11:36:21 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-30 11:36:21 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-30 11:36:21 [main] INFO  org.laba.Main - MVC DEMO WAS SKIPPED
+2024-10-30 11:36:21 [main] INFO  org.laba.Main - -------------{Decorator}-------------
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Used IUser to create 'decoratedUser1' object with Location Type' Foreign'
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Used IUser to create 'decoratedUser2' object with Location Type' Local'
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - -------------{Proxy}-------------
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Used IPayment to create 'authorizedPayment' PaymentProxy object.  Authorized to process payment.
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Used IPayment to create 'unauthorizedPayment' PaymentProxy object. Not authorized to process payment.
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - -------------{Strategy}-------------
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Used IPaymentStrategy to create 'CreditCardPayment' strategy for 'orderCC'.
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Processing order with CreditCardPayment strategy: Amount = 172.5
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Used IPaymentStrategy to create 'BankTransferPayment' strategy for 'orderBT'.
+2024-10-30 11:36:24 [main] INFO  org.laba.Main - Processing order with BankTransferPayment strategy: Amount = 150.0
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - -------------{Factory}-------------
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Used Factory to create 'obj1' String object with value 'A string object.'
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Used Factory to create 'obj2' Integer object with value = 0
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - -------------{Abstract Factory}-------------
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Used FactoryA to create productA1..
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Output of productA1.createProduct(): Product A1
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Used FactoryA to create productB1..
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Output of productB1.createProduct(): Product B1
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Used FactoryB to create productA2..
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Output of productA2.createProduct(): Product A2
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Used FactoryB to create productB2..
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - Output of productB2.createProduct(): Product B2
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - -------------{Facade}-------------
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - The facade executed a complex method and got: Result from Subsystem1, Result from Subsystem2, Result from Subsystem3
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - The facade executed a simple method and got: Result from Subsystem1
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - -------------{MVC}-------------
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - MVC DEMO WAS SKIPPED
+2024-10-30 12:01:51 [main] INFO  org.laba.Main - -------------{Decorator}-------------
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IUser to create 'decoratedUser1' object with Location Type 'Foreign'
+2024-10-30 12:01:56 [main] INFO  model.User - Assembling basic user details
+2024-10-30 12:01:56 [main] INFO  patterns.decorator.ForeignUser - Adding features for a Foreign User
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IUser to create 'decoratedUser2' object with Location Type 'Local'
+2024-10-30 12:01:56 [main] INFO  model.User - Assembling basic user details
+2024-10-30 12:01:56 [main] INFO  patterns.decorator.LocalUser - Adding features for a Local User
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - -------------{Proxy}-------------
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IPayment to create 'authorizedPayment' PaymentProxy object.
+2024-10-30 12:01:56 [main] INFO  patterns.proxy.PaymentProxy - Access authorized. Processing payment.
+2024-10-30 12:01:56 [main] INFO  model.Payment - Processing payment with the method: Debit Card
+2024-10-30 12:01:56 [main] INFO  model.Payment - Payment processed successfully with ID: 3
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IPayment to create 'unauthorizedPayment' PaymentProxy object.
+2024-10-30 12:01:56 [main] INFO  patterns.proxy.PaymentProxy - Access Denied: You do not have permissions to process the payment.
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - -------------{Strategy}-------------
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IPaymentStrategy to create 'CreditCardPayment' strategy for 'orderCC'.
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Processing order with CreditCardPayment strategy: Amount = 172.5
+2024-10-30 12:01:56 [main] INFO  patterns.strategy.CreditCardPayment - Paid 172.5 using Credit Card.
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IPaymentStrategy to create 'BankTransferPayment' strategy for 'orderBT'.
+2024-10-30 12:01:56 [main] INFO  org.laba.Main - Processing order with BankTransferPayment strategy: Amount = 150.0
+2024-10-30 12:01:56 [main] INFO  patterns.strategy.BankTransferPayment - Paid 150.0 using  Bank Transfer.

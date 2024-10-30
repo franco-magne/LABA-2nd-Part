@@ -1,7 +1,12 @@
 package servicelayer;
 
+import dao.impl.CountryDAO;
 import dao.impl.UserDAO;
 import model.User;
+import patterns.decorator.ForeignUser;
+import patterns.decorator.IUser;
+import patterns.decorator.LocalUser;
+
 import java.util.List;
 
 public class UserService {
@@ -26,6 +31,13 @@ public class UserService {
 
     public void deleteUser(User u) {
         userDAO.delete(u);
+    }
+
+    public IUser getUserWithLocation(int id) {
+        User user = userDAO.getByID(id);
+        CountryDAO countryDAO = new CountryDAO();
+        String country = countryDAO.getByID(user.getIdCountry()).getName();
+        return  ("Argentina".equalsIgnoreCase(country) ) ? new LocalUser(user):new ForeignUser(user);
     }
 
 }
