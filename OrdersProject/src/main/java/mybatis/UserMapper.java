@@ -7,7 +7,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    @Select("SELECT * FROM user WHERE (idUser = #{idUser})")
+    @Select("SELECT * FROM user WHERE (idUser = #{id})")
     User getByID(int id);
 
     @Select("SELECT * FROM user")

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import patterns.strategy.IPaymentStrategy;
 import utils.xml.XMLDateAdapter;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -42,6 +43,8 @@ public class Order {
     @XmlElement(name = "productQuantityList")
     private List<ProductQuantity> listProductQuantity;
 
+    private IPaymentStrategy paymentStrategy;
+
     public Order() {}
 
     public Order(int idOrder, User user, double totalPrice, Date orderDate, Payment payment, boolean isPaid) {
@@ -52,6 +55,14 @@ public class Order {
         this.payment = payment;
         this.isPaid = isPaid;
         listProductQuantity =  new ArrayList<>();
+    }
+
+    public Order(IPaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
+    }
+
+    public void processOrder(double amount) {
+        paymentStrategy.pay(amount);
     }
 
     @Override
