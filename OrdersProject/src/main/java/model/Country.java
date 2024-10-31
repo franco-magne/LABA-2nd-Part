@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import patterns.builder.CountryBuilder;
 
 @JsonRootName("country")
 @XmlRootElement(name = "country")
@@ -49,4 +50,9 @@ public class Country {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static CountryBuilder builder() {
+        return new CountryBuilder();
+    }
+
 }

@@ -3,11 +3,19 @@ package model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import patterns.builder.StoreBuilder;
+import patterns.observer.IObserver;
+import patterns.observer.ISubject;
+import java.util.ArrayList;
+import java.util.List;
 
 @JsonRootName("store")
 @XmlRootElement(name = "store")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Store {
+public class Store implements ISubject {
+    private static final Logger logger = LogManager.getLogger(Store.class);
 
     @JsonProperty("idStore")
     @XmlElement(name = "idStore")
@@ -29,6 +37,8 @@ public class Store {
     @XmlElementRef(name = "country", type = Country.class)
     private Country country;
 
+    private List<IObserver> usersSubscribed = new ArrayList<>();
+
     public Store() {}
 
     public Store(int idStore, String name, String address, int reputation, Country country) {
@@ -47,6 +57,26 @@ public class Store {
                 ", address = " + address +
                 ", reputation = " + reputation +
                 ", country = " + country.getName() + " }";
+    }
+
+    @Override
+    public void subscribe(IObserver observer) {
+        usersSubscribed.add(observer);
+    }
+
+    @Override
+    public void unsubscribe(IObserver observer) {
+        usersSubscribed.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers(String message) {
+        usersSubscribed.forEach(o -> o.update(message));
+    }
+
+    public void newActivity(String message) {
+        logger.info(name + " store has last news! Notifying to our subscribers list...");
+        notifyObservers(message);
     }
 
     public int getIdStore() {
@@ -88,4 +118,17 @@ public class Store {
     public void setCountry(Country country) {
         this.country = country;
     }
+
+    public List<IObserver> getUsersSubscribed() {
+        return usersSubscribed;
+    }
+
+    public void setUsersSubscribed(List<IObserver> usersSubscribed) {
+        this.usersSubscribed = usersSubscribed;
+    }
+
+    public static StoreBuilder builder() {
+        return new StoreBuilder();
+    }
+
 }

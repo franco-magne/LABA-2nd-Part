@@ -5,13 +5,14 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import jakarta.xml.bind.annotation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import patterns.decorator.ForeignUser;
+import patterns.builder.UserBuilder;
 import patterns.decorator.IUser;
+import patterns.observer.IObserver;
 
 @JsonRootName("user")
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class User implements IUser {
+public class User implements IUser, IObserver {
     private static final Logger logger = LogManager.getLogger(User.class);
 
     @JsonProperty("idUser")
@@ -135,4 +136,14 @@ public class User implements IUser {
     public String getLocationType() {
         return "Undefined Location Type";
     }
+
+    public static UserBuilder builder() {
+        return new UserBuilder();
+    }
+
+    @Override
+    public void update(String message) {
+        logger.info(email + " has been notified of: " + message);
+    }
+
 }

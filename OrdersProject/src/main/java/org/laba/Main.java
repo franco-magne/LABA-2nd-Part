@@ -1,8 +1,6 @@
 package org.laba;
 
-import model.Order;
-import model.Payment;
-import model.Product;
+import model.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import patterns.abstractfactory.*;
@@ -219,6 +217,44 @@ public class Main {
         orderBT.processOrder(amountBT);
 
 
+        logger.info("-------------{ Builder }-------------");
+
+        User franco = User.builder()
+                .firstName("Franco")
+                .email("francooo@gmail.com")
+                .country(Country.builder().setName("Argentina").build())
+                .build();
+        User uriel = User.builder()
+                .firstName("Uriel")
+                .email("urielll@gmail.com")
+                .country(Country.builder().setName("Argentina").build())
+                .build();
+        User ivana = User.builder()
+                .firstName("Ivana")
+                .email("ivanaaa@gmail.com")
+                .country(Country.builder().setName("Argentina").build())
+                .build();
+
+        logger.info(franco.toString());
+        logger.info(uriel.toString());
+        logger.info(ivana.toString());
+
+
+        logger.info("-------------{ Observer }-------------");
+
+        Store store = Store.builder()
+                .name("WeHaveEverything")
+                .reputation(95)
+                .country(Country.builder().setName("Argentina").build())
+                .build();
+
+        store.subscribe(franco);
+        store.subscribe(uriel);
+        store.subscribe(ivana);
+        store.newActivity("Iphone 16 Pro Max has arrived to our store.");
+
+        store.unsubscribe(franco);
+        store.newActivity("We will be opening a store in USA.");
 
     }
 }

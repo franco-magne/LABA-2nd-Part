@@ -442,3 +442,19 @@
 2024-10-30 12:01:56 [main] INFO  org.laba.Main - Used IPaymentStrategy to create 'BankTransferPayment' strategy for 'orderBT'.
 2024-10-30 12:01:56 [main] INFO  org.laba.Main - Processing order with BankTransferPayment strategy: Amount = 150.0
 2024-10-30 12:01:56 [main] INFO  patterns.strategy.BankTransferPayment - Paid 150.0 using  Bank Transfer.
+2024-10-30 20:18:04 [main] INFO  org.laba.Main - -------------{ Builder }-------------
+2024-10-30 20:18:04 [main] INFO  org.laba.Main - User: { idUser = 25, first name = Franco, last name = null, email = null, address = null, phone number = null, country = Argentina }
+2024-10-30 20:23:42 [main] INFO  org.laba.Main - -------------{ Builder }-------------
+2024-10-30 20:23:42 [main] INFO  org.laba.Main - User: { idUser = 25, first name = Franco, last name = null, email = null, address = null, phone number = null, country = Argentina }
+2024-10-30 22:05:11 [main] INFO  org.laba.Main - -------------{ Builder }-------------
+2024-10-30 22:05:11 [main] INFO  org.laba.Main - User: { idUser = 0, first name = Franco, last name = null, email = francooo@gmail.com, address = null, phone number = null, country = Argentina }
+2024-10-30 22:05:11 [main] INFO  org.laba.Main - User: { idUser = 0, first name = Uriel, last name = null, email = urielll@gmail.com, address = null, phone number = null, country = Argentina }
+2024-10-30 22:05:11 [main] INFO  org.laba.Main - User: { idUser = 0, first name = Ivana, last name = null, email = ivanaaa@gmail.com, address = null, phone number = null, country = Argentina }
+2024-10-30 22:05:11 [main] INFO  org.laba.Main - -------------{ Observer }-------------
+2024-10-30 22:05:11 [main] INFO  model.Store - WeHaveEverything store has last news! Notifying to our subscribers list...
+2024-10-30 22:05:11 [main] INFO  model.User - francooo@gmail.com has been notified of: Iphone 16 Pro Max has arrived to our store.
+2024-10-30 22:05:11 [main] INFO  model.User - urielll@gmail.com has been notified of: Iphone 16 Pro Max has arrived to our store.
+2024-10-30 22:05:11 [main] INFO  model.User - ivanaaa@gmail.com has been notified of: Iphone 16 Pro Max has arrived to our store.
+2024-10-30 22:05:11 [main] INFO  model.Store - WeHaveEverything store has last news! Notifying to our subscribers list...
+2024-10-30 22:05:11 [main] INFO  model.User - urielll@gmail.com has been notified of: We will be opening a store in USA.
+2024-10-30 22:05:11 [main] INFO  model.User - ivanaaa@gmail.com has been notified of: We will be opening a store in USA.
